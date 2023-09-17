@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="webjars/bootstrap/5.1.0/css/bootstrap.min.css" type="text/css" />
+</head>
+<body>
+    <h1>Ingrese sus credenciales:</h1>
+    <form id="loginForm">
+        Usuario: <input type="text" id="usuario" required><br>
+        Clave: <input type="password" id="clave" required><br>
+        <input type="button" value="Iniciar sesion" onclick="validarCredenciales()">
+    </form>
+
+    <script>
+        function validarCredenciales() {
+            var usuario = document.getElementById("usuario").value;
+            var clave = document.getElementById("clave").value;
+            if (usuario === "antony" && clave === "tecsup") {
+
+                window.location.href = "servlets.html";
+            } else {
+                var errorType = "";
+
+                if (usuario !== "antony") {
+                    errorType += "tecsup";
+                }
+
+                if (clave !== "1234") {
+                    if (errorType !== "") {
+                        errorType += "+";
+                    }
+                    errorType += "clave";
+                }
+
+                window.location.href = "error.html?errorType=" + errorType;
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+

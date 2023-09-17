@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Error de Inicio de Sesion</title>
+    <link rel="stylesheet" href="webjars/bootstrap/5.1.0/css/bootstrap.min.css" type="text/css" />
+</head>
+<body>
+    <h1>Error de Inicio de Sesion</h1>
+    
+    <form action="index.html">
+        <p style="color: red;">Credenciales incorrectas. Por favor, intentelo de nuevo.</p>
+        
+        <p id="errorMensaje"></p>
+        
+        <script>
+            var urlParams = new URLSearchParams(window.location.search);
+            var errorType = urlParams.get("errorType");
+
+            if (errorType === "usuario") {
+                document.getElementById("errorMensaje").innerText = "El error esta en el usuario.";
+            } else if (errorType === "clave") {
+                document.getElementById("errorMensaje").innerText = "El error esta en la clave.";
+            } else {
+                document.getElementById("errorMensaje").innerText = "El error esta en el usuario y la clave.";
+            }
+        </script>
+        
+        <input type="submit" value="Volver a intentar">
+    </form>
+</body>
+</html>
+
+
